@@ -1,0 +1,65 @@
+
+.wrapper {
+  text-align: center;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+  height: 100%;
+}
+
+.image{
+	width: 100%;
+  height: 55rem;
+	overflow: hidden;
+	background: url("../../../assets/hero-login.jpeg");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	background-attachment: scroll;
+}
+
+.wrapper {
+  height: 100%;
+}
+
+.container {
+  z-index: 99;
+  justify-content: center;
+  height: auto;
+  width: 20rem;
+  border: 0.0625rem solid var(--border);
+  border-radius: 0.5rem;
+  -webkit-border-radius: 0.5rem;
+  -moz-border-radius: 0.5rem;
+  -ms-border-radius: 0.5rem;
+  -o-border-radius: 0.5rem;
+  padding: 3rem 2rem;
+  background-color: var(--white);
+}
+
+h4{
+  font-size: 1.5rem;
+  font-weight: bold;
+  line-height: 1.5rem;
+}
+
+.btn-primary {
+  width: 100%;
+  background-color: var(--primary-color);
+  border-color: var(--primary-color) ;
+  font-size: 1rem;
+  font-weight: 600;
+  z-index: 99;
+}
+
+.mt-6{
+  margin-top: 2.8rem;
+}
+
+.validation-error {
+  font-size: 0.85rem!important;
+}
+
+
+
+
+

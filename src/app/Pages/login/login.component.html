@@ -1,0 +1,63 @@
+<div class="image">
+    <section class="d-flex align-items-center wrapper">
+      <div class="container">
+        <h4 class="text-center">Sign In</h4>
+        <form class="d-flex flex-column" [formGroup]="login" (ngSubmit)="onSubmit()">
+          <mat-form-field appearance="standard">
+            <mat-label>Username</mat-label>
+            <input
+              matInput
+              name="userName"
+              formControlName="username"
+              required
+            />
+            <mat-error
+            *ngIf="submitted && f.username.errors"
+            class="invalid-feedback"
+          >
+            <div class="validation-error" *ngIf="f.username.errors.required">
+              This field required
+            </div>
+          </mat-error>
+          </mat-form-field>
+          <mat-form-field class="mt-1">
+            <input
+              matInput
+              name="password"
+              formControlName="password"
+              placeholder="Enter your password"
+              [type]="hide ? 'password' : 'text'"
+              required
+            />
+            <button
+              mat-icon-button
+              matSuffix
+              (click)="hide = !hide"
+              [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide"
+            >
+              <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+            </button>
+            <mat-error
+            *ngIf="submitted && f.password.errors"
+            class="invalid-feedback"
+          >
+            <div class="validation-error" *ngIf="f.password.errors.required">
+              This field required
+            </div>
+          </mat-error>
+          </mat-form-field>
+          <div class="mt-6">
+          <button type="button" class="btn btn-primary" type="submit">
+            <div *ngIf="default">Submit</div>
+          <div
+            *ngIf="loader"
+            class="spinner-border spinner-border-sm mr-1"
+          ></div>
+          </button>
+        </div>
+        </form>
+        <app-alert [toaster]="toast" ></app-alert>
+      </div>
+    </section>
+</div>

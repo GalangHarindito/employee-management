@@ -1,0 +1,21 @@
+<nav class="navbar navbar-expand-lg navbar-light">
+  <p class="navbar-brand">Employee Management Tools</p>
+  <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/home" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/employee-list" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:
+          true}">Employee List</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" (click)="onLogout()">Sign Out</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<router-outlet></router-outlet>

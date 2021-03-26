@@ -1,0 +1,40 @@
+
+<div class="wrapper">
+  <section class="container mt-4">
+    <h3 class="text-start">Employee List</h3>
+    <form class="row g-3 mt-4 mb-2 d-flex justify-content-end">
+      <div class="col">
+        <label for="selectGroup">Filter :&nbsp;&nbsp; </label>
+        <select
+          class="form-select form-select-lg"
+          id="selectGroup"
+          aria-label="Default select example"
+          (change)="onFilter($event)"
+        >
+          <option *ngFor="let grup of groups" [value]="grup.enum" [selected]="grup.enum===filterEnum">{{ grup.title }}</option>
+        </select>
+      </div>
+      <div class="mt-2">
+        <a [routerLink]="['../employee-detail/detail']" [queryParams]="{ addEmployee: 'true' }" ><span class="material-icons">
+          add
+          </span> Add Employee</a>
+      </div>
+      <div class="col-sm-4 d-flex justify-content-end">
+        <label for=""></label>
+        <input
+          type="text"
+          class="form-control"
+          id="exampleFormControlInput1"
+          name="searchKey"
+          placeholder="search"
+          [(ngModel)]="searchKey"
+          (keyup)="onSearch($event.target.value)"
+        />
+      </div>
+    </form>
+    <section>
+    <app-table [dataTable]="data" [searchText]="searchKey" [titlesTable]="titles" [filterEmployee]="filterEnum"></app-table>
+    </section>   
+  </section>
+</div>
+

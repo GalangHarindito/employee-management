@@ -1,0 +1,53 @@
+<table>
+  <tr>
+    <th *ngFor="let title of titlesTable">{{ title }}</th>
+  </tr>
+  <tr
+    *ngFor="
+      let data of dataTable | filter:filterEmployee | filter:searchText | paginate: { itemsPerPage: page, currentPage: p } 
+      let i = index
+    "
+  >
+    <td>{{ data.id }}</td>
+    <td>
+      <a 
+      [routerLink]="['../employee-detail/detail']" [queryParams]="{ detail: 'true', id:  data.id }"
+        >{{ data.firstName }} {{ data.lastName }}</a
+      >
+    </td>
+    <td>{{ data.group }}</td>
+    <td>{{ data.email }}</td>
+    <td>{{ data.birthDate }}</td>
+    <td>{{ data.basicSalary | currency }}</td>
+    <td class="d-flex">
+      <button
+        class="mr-2 btn btn-warning btn-sm"
+        (click)="goEmployeeEdit(data.id)"
+      >
+        Edit
+      </button>
+      <button
+        class="mr-2 btn btn-danger btn-sm"
+        (click)="deleteEmployee(data.id)"
+      >
+        Delete
+      </button>
+    </td>
+  </tr>
+</table>
+<section class="text-center pt-2 d-flex justify-content-center">
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  <div>
+    <label class="mt-1" for="select">View per page:&nbsp;&nbsp;</label>
+    <select
+      class="form-select form-select-sm"
+      aria-label=".form-select-sm example"
+      id="select"
+      (change)="navSelected($event)"
+    >
+      <option value="5">5</option>
+      <option value="10" selected>10</option>
+      <option value="25">25</option>
+    </select>
+  </div>
+</section>
