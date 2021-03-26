@@ -6,8 +6,8 @@ Web app ini mempunyai fitur seperti dijelaskan dibawah.
 Project Employee Management Tools menggunakan [Angular CLI](https://github.com/angular/angular-cli) version 8.3.14.
 
 ## Features
-Login
-Employee management list
+- Login
+- Employee management list
 
 ## Login
 Web app ini menggunakan fitur login untuk masuk halaman dashboard.
@@ -29,11 +29,11 @@ Fitur untuk mengubah data karyawan
 Fitur untuk melihat data karyawan.
 - Klik nama dari karyawan edit pada halaman employee-list.
 
-3. Delete Employee
+4. Delete Employee
 Fitur untuk menghapus data karyawan.
 - Klik tombol delete pada tabel pada halaman employee-list.
 
-4. Search karyawan dan Filter karyawan
+5. Search karyawan dan Filter karyawan
 Fitur untuk mencari spesific data karyawan.
 
 ## Cara Menjalankan web app
