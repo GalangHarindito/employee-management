@@ -30,12 +30,12 @@ const routes: Routes = [
           )
       },
       {
-        path: "employee-detail/detail",
+        path: "employee-detail",
         loadChildren: () =>
           import("./Pages/employee-detail/employee-detail.module").then(
             (m) => m.EmployeeDetailModule
           )
-      },
+      }
     ]
   },
   

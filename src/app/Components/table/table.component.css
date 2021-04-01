@@ -72,3 +72,15 @@ a:hover {
   height: 2rem;
   font-size: 0.865rem;
 }
+
+tr {
+  cursor: pointer;
+}
+
+.active-play {
+  color: green;
+}
+
+.retire {
+  color: red;
+}

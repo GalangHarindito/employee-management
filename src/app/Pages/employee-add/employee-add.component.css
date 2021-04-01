@@ -22,14 +22,3 @@ label {
   margin-top: 2rem;
   width: 20rem;
 }
-
-.container {
-  border: 1px solid #CED4DA;
-  ;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-  border-radius: 0.85rem;
-  -webkit-border-radius: 0.85rem;
-  -moz-border-radius: 0.85rem;
-  -ms-border-radius: 0.85rem;
-  -o-border-radius: 0.85rem;
-}

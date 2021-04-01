@@ -12,7 +12,7 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 export class EmployeeDetailComponent implements OnInit {
   id: any;
   fetchLogin: any;
-  data: any;
+  data: any = {};
   firstName: any;
   LastName: any;
   email: any;
@@ -130,6 +130,7 @@ export class EmployeeDetailComponent implements OnInit {
     if (this.formData.invalid) {
       return;
     }
+
     this.data = {
       firstName: this.formData.controls.firstName.value,
       lastName: this.formData.controls.lastName.value,
@@ -143,11 +144,10 @@ export class EmployeeDetailComponent implements OnInit {
       description: this.formData.controls.description.value,
     };
 
-    console.log(this.data);
 
     this.fetchLogin = this.FetchService.createEmployee(this.data).subscribe(
       (res) => {
-        this.router.navigateByUrl("home/employee-list");
+        this.router.navigateByUrl("employee-list");
       },
       (error) => {}
     );

@@ -1,42 +1,33 @@
 <div class="wrapper">
-  <div class="container mt-4 p-4">
+  <div class="container mt-4">
     <section>
       <h3 class="text-center">{{pageTitle}}</h3>
     </section>
-    <div class="col d-flex mt-4 justify-content-center flex-column">
-      <section class="row">
-        <img class="ml-auto mr-auto mb-4"  src="assets/avatar-1.png" alt="avatar" />
+    <div class="row d-flex mt-4 justify-content-center flex-row">
+      <section >
+        <img src="assets/avatar-1.png" alt="avatar" />
       </section>
-      <form class="row d-flex justify-content-center" [formGroup]="formData">
-        <section class="col-md-4" >
+      <form class="row ml-4">
+        <section class="col-md-6" >
           <div class="mb-2">
             <label for="firstName" class="form-label">First Name</label>
             <input
               type="text"
               class="form-control"
               id="firstName"
-              name="firstName"
-              [(ngModel)]="data.firstName"
-              formControlName="firstName"
-              required
              
             />
           </div>
-
+         
           <div class="mb-2">
             <label for="lastName" class="form-label">Last Name</label>
             <input
               type="text"
               class="form-control"
               id="lastName"
-              name="lastName"
-              [(ngModel)]="data.lastName"
-              formControlName="lastName"
-              required
+      
             />
-            <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
-              <div *ngIf="f.lastName.errors.required">This field required</div>
-          </div>
+        
           </div>
           <div class="mb-2">
             <label for="email" class="form-label">Email</label>
@@ -44,14 +35,9 @@
               type="email"
               class="form-control"
               id="email"
-              name="email"
-              [(ngModel)]="data.email"
-              formControlName="email"
-              required
+         
             />
-            <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
-              <div *ngIf="f.firstName.errors.required">This field required</div>
-          </div>
+        
           </div>
           <div class="mb-2">
             <label for="birthDate" class="form-label">Birth Date</label>
@@ -59,16 +45,12 @@
               type="date"
               class="form-control"
               id="birthDate"
-              name="birthDate"
-              [(ngModel)]="birthDate"
-              [max]="maxDate"
-              formControlName="birthDate"
-              required
+       
             />
           </div>
         </section>
 
-        <section class="col-md-4">
+        <section class="col-md-6">
           <div class="mb-2">
             <label for="basicSalary" class="form-label">Basic Salary</label>
             <input
@@ -77,10 +59,7 @@
               min="0"
               class="form-control"
               id="basicSalary"
-              name="basicSalary"
-              [(ngModel)]="basicSalary"
-              formControlName="basicSalary"
-              required
+       
             />
           </div>
           <div class="mb-2 d-flex flex-column">
@@ -89,13 +68,10 @@
               class="form-select form-select-lg"
               id="selectGroup"
               aria-label="Default select example"
-              name="group"
-              [(ngModel)]="data.group"
-              formControlName="group"
-              required
+              [(ngModel)]="data.test"
             >
               <option></option>
-              <option *ngFor="let grup of groups" [value]="grup.enum" [selected]="grup.enum===data.group">
+              <option *ngFor="let grup of groups" >
                 {{ grup.title }}
               </option>
             </select>
@@ -106,7 +82,7 @@
             </div>
             <div
               class="form-check form-check-inline mb-4"
-              *ngFor="let item of statusOption"
+              *ngFor="let item of option"
             >
               <input
                 class="form-check-input"
@@ -114,11 +90,7 @@
                 name="status"
                 id="inlineRadio1"
                 value="item.enum"
-                name="status"
-                [(ngModel)]="data.status"
-                [value]="item.enum"
-                formControlName="status"
-                required
+                [(ngModel)] = "data.test2"
               />
               <label class="form-check-label" for="inlineRadio1">{{
                 item.title
@@ -131,10 +103,7 @@
               class="form-control"
               id="description"
               rows="3"
-              name="description"
-              [(ngModel)]="data.description"
-              formControlName="description"
-              required
+        
             ></textarea>
           </div>
         </section>
@@ -150,3 +119,7 @@
     </section>
   </div>
 </div>
+
+<ul>
+  <li *ngFor="let item of option">{{item.title}}</li>
+</ul>

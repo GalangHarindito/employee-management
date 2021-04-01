@@ -2,7 +2,7 @@
   <tr>
     <th *ngFor="let title of titlesTable">{{ title }}</th>
   </tr>
-  <tr
+  <tr [routerLink]="['../employee-detail']" [queryParams]="{ detail: 'true', id:  data.id }"
     *ngFor="
       let data of dataTable | filter:filterEmployee | filter:searchText | paginate: { itemsPerPage: page, currentPage: p } 
       let i = index
@@ -10,15 +10,13 @@
   >
     <td>{{ data.id }}</td>
     <td>
-      <a 
-      [routerLink]="['../employee-detail/detail']" [queryParams]="{ detail: 'true', id:  data.id }"
-        >{{ data.firstName }} {{ data.lastName }}</a
-      >
+      {{ data.firstName }} {{ data.lastName }}
     </td>
     <td>{{ data.group }}</td>
     <td>{{ data.email }}</td>
     <td>{{ data.birthDate }}</td>
     <td>{{ data.basicSalary | currency }}</td>
+    <td [ngClass]="getClassStatus(data.status)" >{{data.status}}</td>
     <td class="d-flex">
       <button
         class="mr-2 btn btn-warning btn-sm"

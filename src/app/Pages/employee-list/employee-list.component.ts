@@ -18,6 +18,7 @@ export class EmployeeListComponent implements OnInit, DoCheck {
     "Email",
     "Birth Date",
     "Basic Salary",
+    "Status",
     "Action",
   ];
   fetchLogin: any;
@@ -45,6 +46,7 @@ export class EmployeeListComponent implements OnInit, DoCheck {
 
   ngDoCheck() {
     this.changeProperty();
+    console.log(this.data)
   }
 
   getEmployee() {
@@ -77,6 +79,14 @@ export class EmployeeListComponent implements OnInit, DoCheck {
           break;
         case "defender":
           this.data[i].group = "Defender";
+          break;
+      }
+      switch (this.data[i].status) {
+        case true:
+          this.data[i].status = "Active Play";
+          break;
+        case false:
+          this.data[i].status = "Retire";
           break;
       }
     }
