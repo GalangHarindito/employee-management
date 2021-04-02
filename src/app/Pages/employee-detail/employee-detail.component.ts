@@ -79,6 +79,7 @@ export class EmployeeDetailComponent implements OnInit {
     this.fetchLogin = this.FetchService.getEmployeeById(this.id).subscribe(
       (res) => {
         this.data = res;
+        this.changeProperty();
         this.getDate(this.data.birthDate);
         this.getMasking(this.data.basicSalary);
       },
@@ -86,8 +87,33 @@ export class EmployeeDetailComponent implements OnInit {
     );
   }
 
+  changeProperty() {
+    switch (this.data.group) {
+      case "Goal Keeper":
+        this.data.group = "goalKeeper";
+        break;
+      case "Midfielder":
+        this.data.group = "midfielder";
+        break;
+      case "Forward":
+        this.data.group = "forward";
+        break;
+      case "Defender":
+        this.data.group = "defender";
+        break;
+    }
+    switch (this.data.status) {
+      case "Active Play":
+        this.data.status = true;
+        break;
+      case "Retire":
+        this.data.status = false;
+        break;
+    }
+}
+
   get f() {
-    return console.log(this.formData.controls);
+    return this.formData.controls ;
   }
 
   putEmployee() {
@@ -96,6 +122,8 @@ export class EmployeeDetailComponent implements OnInit {
     if (this.formData.invalid) {
       return;
     }
+
+    window.alert('Are you sure want to edit this employee?')
 
     this.dataChanges = {
       id: Number(this.id),
@@ -138,12 +166,11 @@ export class EmployeeDetailComponent implements OnInit {
       birthDate: moment(this.formData.controls.birthDate.value).format(
         "MM/DD/YYYY"
       ),
-      basicSalary: this.formData.controls.basicSalary.value,
+      basicSalary: this.normalizeNumber(this.formData.controls.basicSalary.value),
       group: this.formData.controls.group.value,
       status: this.formData.controls.status.value,
       description: this.formData.controls.description.value,
     };
-
 
     this.fetchLogin = this.FetchService.createEmployee(this.data).subscribe(
       (res) => {

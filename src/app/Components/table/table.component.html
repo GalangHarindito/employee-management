@@ -4,7 +4,7 @@
   </tr>
   <tr [routerLink]="['../employee-detail']" [queryParams]="{ detail: 'true', id:  data.id }"
     *ngFor="
-      let data of dataTable | filter:filterEmployee | filter:searchText | paginate: { itemsPerPage: page, currentPage: p } 
+      let data of dataTable | filter:filterEmployee | filter:searchText | paginate: { itemsPerPage: pageList, currentPage: p } 
       let i = index
     "
   >
@@ -34,14 +34,14 @@
   </tr>
 </table>
 <section class="text-center pt-2 d-flex justify-content-center">
-  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  <pagination-controls (pageChange)="page($event)"></pagination-controls>
   <div>
     <label class="mt-1" for="select">View per page:&nbsp;&nbsp;</label>
     <select
       class="form-select form-select-sm"
       aria-label=".form-select-sm example"
       id="select"
-      (change)="navSelected($event)"
+      (change)="viewPageSelected($event)"
     >
       <option value="5">5</option>
       <option value="10" selected>10</option>

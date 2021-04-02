@@ -1,14 +1,22 @@
+
 nav {
   width: 100%;
+  margin-left: 0.02rem;
 }
 
 .navbar {
   background-color: var(--primary-color);
+  position: fixed;
+  z-index: 99;
 }
 
 .navbar-brand {
-  color: var(--white);
-  font-weight: 600;
+  font-weight: 500;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
 }
 
 .nav-item a {
@@ -20,9 +28,16 @@ nav {
   color: white;
 }
 
-.nav-item:nth-last-child(1) a {
-  color: red!important;
-  cursor: pointer;
+.nav-item span {
+  border-left: 0.125rem solid black;
+  height: 2rem;
+  padding: 0.5rem;
+}
+
+.nav-item:nth-last-child(1) {
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.5rem;
 }
 
 p {
@@ -33,7 +48,88 @@ p {
   color:red;
 }
 
+.dropdown-menu > a:hover {
+  color: black;
+  cursor: pointer;
+}
 
 
+#body-row {
+  margin-left:0;
+  margin-right:0;
+
+}
+#sidebar-container {
+  height: 100vw;   
+  background-color: #333;
+  padding: 0;
+  z-index: 1;
+}
+
+
+.sidebar-expanded {
+  width: 230px;
+  margin-top: 3.5rem;
+  position: fixed;
+  height: 100vh;
+}
+
+.height {
+  height: 100vw;
+}
+
+.sidebar-collapsed {
+  width: 60px;
+}
+
+.list-group-item-action {
+  color: white;
+}
+
+
+#sidebar-container .list-group a {
+  height: 50px;
+  color: white;
+}
+
+
+#sidebar-container .list-group .sidebar-submenu a {
+  height: 45px;
+  padding-left: 30px;
+}
+.sidebar-submenu {
+  font-size: 0.9rem;
+}
+
+a {
+  cursor: pointer;
+}
+
+.sidebar-separator-title {
+  background-color: #333;
+  height: 35px;
+}
+.sidebar-separator {
+  background-color: #333;
+  height: 25px;
+}
+.logo-separator {
+  background-color: #333;    
+  height: 60px;
+}
+
+.main {
+  top: 4.5rem;
+}
+
+.active-link{
+  color: red!important;
+}
+
+@media (max-width: 992px) {
+  .d-lg-block {
+    display: none;
+}
+}
 
 

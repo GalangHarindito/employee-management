@@ -1,6 +1,7 @@
 import { Component, DoCheck, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { FetchService } from "../../Service/fetch.service";
+import { Location } from '@angular/common';
 
 @Component({
   selector: "app-employee-list",
@@ -32,11 +33,13 @@ export class EmployeeListComponent implements OnInit, DoCheck {
   filterEnum: any;
   newData: any;
   order: any;
+  urlTree: any;
 
   constructor(
     private FetchService: FetchService,
     public router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private location: Location
   ) {}
 
   ngOnInit() {
@@ -46,7 +49,6 @@ export class EmployeeListComponent implements OnInit, DoCheck {
 
   ngDoCheck() {
     this.changeProperty();
-    console.log(this.data)
   }
 
   getEmployee() {
@@ -92,7 +94,7 @@ export class EmployeeListComponent implements OnInit, DoCheck {
     }
   }
 
-  onFilter($event){
+  onFilter($event) {
     this.filterEnum = $event.target.value;
     this.goSearch();
   }
@@ -102,14 +104,24 @@ export class EmployeeListComponent implements OnInit, DoCheck {
     this.goSearch();
   }
 
-  onAddEmployee() {
-    this.router.navigateByUrl("/home/employee-list/add");
+  goSearch() {
+    //this.urlTree = this.router.createUrlTree([], {
+    //  queryParams: { keyword: this.searchKey},
+    //  queryParamsHandling: "merge",
+    //  preserveFragment: true,
+    //});
+    //this.location.go(this.urlTree);
+    this.router.navigate(["employee-list"], {
+      queryParams: { keyword: this.searchKey, filter: this.filterEnum },
+    });
   }
 
-  goSearch() {
-    this.router.navigate(["employee-list"], {
-      queryParams: { keyword: this.searchKey, filter: this.filterEnum, page: '1' },
+  goFilter() {
+    this.urlTree = this.router.createUrlTree([], {
+      queryParams: { filter: this.filterEnum},
+      queryParamsHandling: "merge",
     });
+    this.location.go(this.urlTree);
   }
 
   querryParams() {
@@ -122,8 +134,7 @@ export class EmployeeListComponent implements OnInit, DoCheck {
 
   goAddEmployee() {
     this.router.navigate(["employee-detail/detail"], {
-      queryParams: { keyword: this.searchKey, filter: this.filterEnum, page: '1' },
+      queryParams: { keyword: this.searchKey, filter: this.filterEnum },
     });
   }
-
 }

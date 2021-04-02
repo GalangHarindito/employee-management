@@ -58,7 +58,9 @@ export class FakeLoginService implements HttpInterceptor {
         );
         if (!user) return error("Username or password is incorrect");
         return ok({
+          userId: user.userId,
           username: user.userName,
+          role: user.role,
           token: user.jwt,
         });
       }

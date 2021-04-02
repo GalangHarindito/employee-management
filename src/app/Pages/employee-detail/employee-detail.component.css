@@ -33,3 +33,17 @@ label {
   -ms-border-radius: 0.85rem;
   -o-border-radius: 0.85rem;
 }
+
+small {
+  color: red;
+  
+}
+
+div .is-invalid {
+  outline-color: red;
+}
+
+button:disabled {
+  background-color: grey;
+  border-color: transparent;
+}
