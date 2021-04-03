@@ -45,8 +45,13 @@ Web app ini berjalan pada mode dev.
 4. Jalankan Web app dengan mengetik `ng serve`. 
 5. Pada browser ketik `http://localhost:4200/`.
 6. Pada halaman login, gunakan 
-   `User name = admin`
+    admin 1 
+   `User name = admin_1`
    `Password = Qwerty1!`
+   
+    admin 2
+   `User name = admin_2`
+   `Password = Qwerty2!`
 
 
 
