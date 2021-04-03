@@ -69,7 +69,7 @@ export class TableComponent implements OnInit, AfterViewInit {
   }
 
   deleteEmployee(id) {
-    window.alert('Are you sure want to delete this employee?')
+    window.alert('Are you sure want to delete')
     this.newData = this.dataTable.filter((x) => x.id !== id);
     return (this.dataTable = this.newData);
   }
@@ -86,7 +86,7 @@ export class TableComponent implements OnInit, AfterViewInit {
 
   getClassStatus(value) {
     return {
-      retire: value === "Retire",
+      "retire": value === "Retire",
       "active-play": value === "Active Play",
     };
   }
