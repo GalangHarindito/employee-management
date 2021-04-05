@@ -26,6 +26,7 @@ export class TableComponent implements OnInit, AfterViewInit {
   pageList = 10;
   currentUrl: any;
   urlTree: any;
+  order:any;
 
   constructor(
     private router: Router,
@@ -35,7 +36,9 @@ export class TableComponent implements OnInit, AfterViewInit {
     this.currentUrl = activateRoute.snapshot["_routerState"].url;
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.querryParams()
+  }
 
   ngAfterViewInit() {
     this.getClassStatus;
@@ -51,18 +54,6 @@ export class TableComponent implements OnInit, AfterViewInit {
     });
     this.location.go(this.urlTree);
   }
-
-  //myMethodChangingQueryParams() {
-  //  const queryParams: Params = { myParam: 'myNewValue' };
-
-  //  this.router.navigate(
-  //    [],
-  //    {
-  //      relativeTo: activatedRoute,
-  //      queryParams: queryParams,
-  //      queryParamsHandling: 'merge', // remove to replace all query params by provided
-  //    });
-  //}
 
   detailEmployee(id) {
     this.router.navigateByUrl(`/employee-detail/${id}`);
@@ -82,6 +73,13 @@ export class TableComponent implements OnInit, AfterViewInit {
     this.router.navigate(["employee-detail"], {
       queryParams: { editEmployee: "true", id: `${id}` },
     });
+  }
+
+  querryParams() {
+    this.activateRoute.queryParamMap.subscribe((params) => {
+      this.order = { ...params.keys, ...params };
+    });
+    this.p = Number(this.order.params.page);
   }
 
   getClassStatus(value) {

@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { FetchService } from "../../Service/fetch.service";
 import * as moment from "moment";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { Location } from '@angular/common';
 
 @Component({
   selector: "app-employee-detail",
@@ -45,7 +46,8 @@ export class EmployeeDetailComponent implements OnInit {
     private FetchService: FetchService,
     private fb: FormBuilder,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private location:Location
   ) {}
 
   groups: any = [
@@ -214,5 +216,9 @@ export class EmployeeDetailComponent implements OnInit {
       this.pageTitle = "Create Employee";
       this.addEmployee = true;
     }
+  }
+
+  onCancel() {
+    this.location.back()
   }
 }

@@ -1,176 +1,175 @@
-
-  <div class="container mt-4 p-4">
-    <section>
-      <h3 class="text-center">{{ pageTitle }}</h3>
+<div class="container mt-4 p-4">
+  <section>
+    <h3 class="text-center">{{ pageTitle }}</h3>
+  </section>
+  <div class="col d-flex mt-4 justify-content-center flex-column">
+    <section class="row">
+      <img
+        class="ml-auto mr-auto mb-4"
+        src="assets/avatar-1.png"
+        alt="avatar"
+      />
     </section>
-    <div class="col d-flex mt-4 justify-content-center flex-column">
-      <section class="row">
-        <img
-          class="ml-auto mr-auto mb-4"
-          src="assets/avatar-1.png"
-          alt="avatar"
-        />
-      </section>
-      <form [formGroup]="formData">
-        <div class="row d-flex justify-content-center">
-          <section class="col-lg-6-md-4-sm-2">
-            <div class="mb-2">
-              <label for="firstName" class="form-label">First Name</label>
-              <input
-                type="text"
-                class="form-control"
-                id="firstName"
-                name="firstName"
-                [(ngModel)]="data.firstName"
-                formControlName="firstName"
-                required
-                [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }"
-              />
-              <div
-                *ngIf="
-                  formData.controls['firstName'].invalid &&
-                  (formData.controls['firstName'].dirty ||
-                    formData.controls['firstName'].touched)
-                "
-                class="is-invalid"
-              >
-                <div *ngIf="formData.controls['firstName'].errors.required">
-                  <small>First Name is required</small>
-                </div>
-              </div>
-            </div>
-
-            <div class="mb-2">
-              <label for="lastName" class="form-label">Last Name</label>
-              <input
-                type="text"
-                class="form-control"
-                id="lastName"
-                [(ngModel)]="data.lastName"
-                formControlName="lastName"
-                [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }"
-                required
-              />
-              <div
-                *ngIf="
-                  formData.controls['lastName'].invalid &&
-                  (formData.controls['lastName'].dirty ||
-                    formData.controls['lastName'].touched)
-                "
-                class="is-invalid"
-              >
-                <div *ngIf="formData.controls['lastName'].errors.required">
-                  <small>Last Name is required</small>
-                </div>
-              </div>
-            </div>
-            <div class="mb-2">
-              <label for="email" class="form-label">Email</label>
-              <input
-                type="email"
-                class="form-control"
-                id="email"
-                name="email"
-                [(ngModel)]="data.email"
-                formControlName="email"
-                [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
-                required
-              />
-              <div
-                *ngIf="
-                  formData.controls['email'].invalid &&
-                  (formData.controls['email'].dirty ||
-                    formData.controls['email'].touched)
-                "
-                class="is-invalid"
-              >
-                <div *ngIf="formData.controls['email'].errors.required">
-                  <small>Email is required</small>
-                </div>
-                <div *ngIf="formData.controls['email'].errors.email">
-                  <small>Email not valid</small>
-                </div>
-              </div>
-            </div>
-            <div class="mb-2">
-              <label for="birthDate" class="form-label">Birth Date</label>
-              <input
-                type="date"
-                class="form-control"
-                id="birthDate"
-                name="birthDate"
-                [(ngModel)]="birthDate"
-                [max]="maxDate"
-                formControlName="birthDate"
-                [ngClass]="{ 'is-invalid': submitted && f.birthDate.errors }"
-                required
-              />
-            </div>
+    <form [formGroup]="formData">
+      <div class="row d-flex justify-content-center">
+        <section class="col-lg-6-md-4-sm-2">
+          <div class="mb-2">
+            <label for="firstName" class="form-label">First Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="firstName"
+              name="firstName"
+              [(ngModel)]="data.firstName"
+              formControlName="firstName"
+              required
+              [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }"
+            />
             <div
               *ngIf="
-                formData.controls['birthDate'].invalid &&
-                (formData.controls['birthDate'].dirty ||
-                  formData.controls['birthDate'].touched)
+                formData.controls['firstName'].invalid &&
+                (formData.controls['firstName'].dirty ||
+                  formData.controls['firstName'].touched)
               "
               class="is-invalid"
             >
-              <div *ngIf="formData.controls['birthDate'].errors.required">
-                <small>Birth date is required</small>
+              <div *ngIf="formData.controls['firstName'].errors.required">
+                <small>First Name is required</small>
               </div>
             </div>
-          </section>
+          </div>
 
-          <section class="col-lg-6-md-4-sm-2 ml-4">
-            <div class="mb-2">
-              <label for="basicSalary" class="form-label">Basic Salary</label>
-              <input
-                type="text"
-                step="250000"
-                min="0"
-                class="form-control"
-                id="basicSalary"
-                name="basicSalary"
-                [(ngModel)]="basicSalary"
-                formControlName="basicSalary"
-                [ngClass]="{ 'is-invalid': submitted && f.basicSalary.errors }"
-                required
-              />
-              <div
-                *ngIf="
-                  formData.controls['basicSalary'].invalid &&
-                  (formData.controls['basicSalary'].dirty ||
-                    formData.controls['basicSalary'].touched)
-                "
-                class="is-invalid"
-              >
-                <div *ngIf="formData.controls['basicSalary'].errors.required">
-                  <small>Basic salary is required</small>
-                </div>
+          <div class="mb-2">
+            <label for="lastName" class="form-label">Last Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="lastName"
+              [(ngModel)]="data.lastName"
+              formControlName="lastName"
+              [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }"
+              required
+            />
+            <div
+              *ngIf="
+                formData.controls['lastName'].invalid &&
+                (formData.controls['lastName'].dirty ||
+                  formData.controls['lastName'].touched)
+              "
+              class="is-invalid"
+            >
+              <div *ngIf="formData.controls['lastName'].errors.required">
+                <small>Last Name is required</small>
               </div>
             </div>
+          </div>
+          <div class="mb-2">
+            <label for="email" class="form-label">Email</label>
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              name="email"
+              [(ngModel)]="data.email"
+              formControlName="email"
+              [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
+              required
+            />
+            <div
+              *ngIf="
+                formData.controls['email'].invalid &&
+                (formData.controls['email'].dirty ||
+                  formData.controls['email'].touched)
+              "
+              class="is-invalid"
+            >
+              <div *ngIf="formData.controls['email'].errors.required">
+                <small>Email is required</small>
+              </div>
+              <div *ngIf="formData.controls['email'].errors.email">
+                <small>Email not valid</small>
+              </div>
+            </div>
+          </div>
+          <div class="mb-2">
+            <label for="birthDate" class="form-label">Birth Date</label>
+            <input
+              type="date"
+              class="form-control"
+              id="birthDate"
+              name="birthDate"
+              [(ngModel)]="birthDate"
+              [max]="maxDate"
+              formControlName="birthDate"
+              [ngClass]="{ 'is-invalid': submitted && f.birthDate.errors }"
+              required
+            />
+          </div>
+          <div
+            *ngIf="
+              formData.controls['birthDate'].invalid &&
+              (formData.controls['birthDate'].dirty ||
+                formData.controls['birthDate'].touched)
+            "
+            class="is-invalid"
+          >
+            <div *ngIf="formData.controls['birthDate'].errors.required">
+              <small>Birth date is required</small>
+            </div>
+          </div>
+        </section>
 
-            <div class="mb-2 d-flex flex-column">
-              <label for="selectGroup">Group</label>
-              <select
-                class="form-select form-select-lg"
-                id="selectGroup"
-                aria-label="Default select example"
-                name="group"
-                [(ngModel)]="data.group"
-                formControlName="group"
-                [ngClass]="{ 'is-invalid': submitted && f.group.errors }"
-                required
+        <section class="col-lg-6-md-4-sm-2 ml-4">
+          <div class="mb-2">
+            <label for="basicSalary" class="form-label">Basic Salary</label>
+            <input
+              type="text"
+              step="250000"
+              min="0"
+              class="form-control"
+              id="basicSalary"
+              name="basicSalary"
+              [(ngModel)]="basicSalary"
+              formControlName="basicSalary"
+              [ngClass]="{ 'is-invalid': submitted && f.basicSalary.errors }"
+              required
+            />
+            <div
+              *ngIf="
+                formData.controls['basicSalary'].invalid &&
+                (formData.controls['basicSalary'].dirty ||
+                  formData.controls['basicSalary'].touched)
+              "
+              class="is-invalid"
+            >
+              <div *ngIf="formData.controls['basicSalary'].errors.required">
+                <small>Basic salary is required</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-2 d-flex flex-column">
+            <label for="selectGroup">Group</label>
+            <select
+              class="form-select form-select-lg"
+              id="selectGroup"
+              aria-label="Default select example"
+              name="group"
+              [(ngModel)]="data.group"
+              formControlName="group"
+              [ngClass]="{ 'is-invalid': submitted && f.group.errors }"
+              required
+            >
+              <option></option>
+              <option
+                *ngFor="let grup of groups"
+                [value]="grup.enum"
+                [selected]="grup.enum === data.group"
               >
-                <option></option>
-                <option
-                  *ngFor="let grup of groups"
-                  [value]="grup.enum"
-                  [selected]="grup.enum === data.group"
-                >
-                  {{ grup.title }}
-                </option>
-              </select>
-              <div
+                {{ grup.title }}
+              </option>
+            </select>
+            <div
               *ngIf="
                 formData.controls['group'].invalid &&
                 (formData.controls['group'].dirty ||
@@ -182,30 +181,30 @@
                 <small>Group is required</small>
               </div>
             </div>
-            </div>
+          </div>
 
+          <div>
             <div>
-              <div>
-                <label for="status">Status</label>
-              </div>
+              <label for="status">Status</label>
+            </div>
+            <div
+              class="form-check form-check-inline mb-4"
+              *ngFor="let item of statusOption"
+            >
+              <input
+                class="form-check-input"
+                type="radio"
+                name="status"
+                id="inlineRadio1"
+                value="item.enum"
+                name="status"
+                [(ngModel)]="data.status"
+                [value]="item.enum"
+                formControlName="status"
+                [ngClass]="{ 'is-invalid': submitted && f.status.errors }"
+                required
+              />
               <div
-                class="form-check form-check-inline mb-4"
-                *ngFor="let item of statusOption"
-              >
-                <input
-                  class="form-check-input"
-                  type="radio"
-                  name="status"
-                  id="inlineRadio1"
-                  value="item.enum"
-                  name="status"
-                  [(ngModel)]="data.status"
-                  [value]="item.enum"
-                  formControlName="status"
-                  [ngClass]="{ 'is-invalid': submitted && f.status.errors }"
-                  required
-                />
-                <div
                 *ngIf="
                   formData.controls['status'].invalid &&
                   (formData.controls['status'].dirty ||
@@ -217,24 +216,24 @@
                   <small>Status is required</small>
                 </div>
               </div>
-                <label class="form-check-label" for="inlineRadio1">{{
-                  item.title
-                }}</label>
-              </div>
+              <label class="form-check-label" for="inlineRadio1">{{
+                item.title
+              }}</label>
             </div>
-            <div class="mb-2">
-              <label for="description" class="form-label">Description</label>
-              <textarea
-                class="form-control"
-                id="description"
-                rows="3"
-                name="description"
-                [(ngModel)]="data.description"
-                formControlName="description"
-                [ngClass]="{ 'is-invalid': submitted && f.description.errors }"
-                required
-              ></textarea>
-              <div
+          </div>
+          <div class="mb-2">
+            <label for="description" class="form-label">Description</label>
+            <textarea
+              class="form-control"
+              id="description"
+              rows="3"
+              name="description"
+              [(ngModel)]="data.description"
+              formControlName="description"
+              [ngClass]="{ 'is-invalid': submitted && f.description.errors }"
+              required
+            ></textarea>
+            <div
               *ngIf="
                 formData.controls['description'].invalid &&
                 (formData.controls['description'].dirty ||
@@ -246,33 +245,37 @@
                 <small>Description is required</small>
               </div>
             </div>
-            </div>
-          </section>
-        </div>
-
-        <section class="d-flex justify-content-center">
-          <button
-            type="submit"
-            class="btn btn-primary"
-            type="submit"
-            (click)="putEmployee()"
-            *ngIf="editEmployee"
-            [disabled]="formData.pristine || formData.invalid"
-          >
-            Save Changes
-          </button>
-          <button
-            type="submit"
-            class="btn btn-primary"
-            type="submit"
-            (click)="createEmployee()"
-            [disabled]="formData.pristine || formData.invalid"
-            *ngIf="addEmployee"
-          >
-            Submit
-          </button>
+          </div>
         </section>
-      </form>
-    </div>
-  </div>
+      </div>
 
+      <section class="row justify-content-center">
+          <button
+          class="col-lg-6-md-4-sm-2 btn btn-primary"
+          type="submit"
+          (click)="putEmployee()"
+          *ngIf="editEmployee"
+          [disabled]="formData.pristine || formData.invalid"
+        >
+          Save Changes
+        </button>
+        <button
+          class="col-sm-4-md-6-lg-6 btn btn-primary"
+          type="submit"
+          (click)="createEmployee()"
+          [disabled]="formData.pristine || formData.invalid"
+          *ngIf="addEmployee"
+        >
+          Submit
+        </button>
+        <button
+          type="button"
+          class="col-sm-4-md-6-lg-6 btn btn-danger ml-4"
+          (click)="onCancel()"
+        >
+          Cancel
+        </button>
+      </section>
+    </form>
+  </div>
+</div>
