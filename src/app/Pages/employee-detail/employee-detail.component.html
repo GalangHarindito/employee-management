@@ -131,6 +131,7 @@
               name="basicSalary"
               [(ngModel)]="basicSalary"
               formControlName="basicSalary"
+              appCurrency
               [ngClass]="{ 'is-invalid': submitted && f.basicSalary.errors }"
               required
             />
